@@ -28,24 +28,33 @@ class Masseuse extends Application {
         $paragraphList = $dom->getElementsByTagName('p');
         
         //search for these things (pattern)
-        $search = array ( '/([A-Z]+[^-\s]*)/');
+        $search = array ( '/([A-Z]+[A-Za-z]*)/');
         
         //character to replace the things we want to replace
         $replace = array ( '<strong>$1</strong>');
+        
+        
         foreach($paragraphList as $p)
         {
-            if  ( $p->getAttribute( 'class' == 'lead' ) )
+            //if the paragraph tag is a lead then bold it
+            if  ( $p->getAttribute( 'class' ) === 'lead' )
             {
-                //replace with bold
                $string = $p->nodeValue;
-               $p->nodeValue = preg_replace( $search, $replace, $string );
+               
+               //replace with bold
+               $string = preg_replace( $search, $replace, $string );
+               
+               //Create a new tag object
+               $frag = $dom->createDocumentFragment();
+               $frag->appendXML($string);
+               
+               //Add the object to the element
+               $p->nodeValue = '';
+               $p->appendChild($frag);
             }
         }
-        
-        
         //output the changes back to the screen
-        $CI->output->set_output($page);
-        $CI->output->_display();
+        echo $dom->saveHTML();
     }
     
 }
