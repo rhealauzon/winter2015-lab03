@@ -10,6 +10,12 @@
 |
 */
 
+$hook['display_override'] = array (
+    'class' => 'Masseuse',
+    'function' => 'capitalBold',
+    'filename' => 'Masseuse.php',
+    'filepath' => 'hooks'
+ );
 
 
 /* End of file hooks.php */
