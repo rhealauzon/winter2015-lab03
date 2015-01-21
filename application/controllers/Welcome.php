@@ -18,7 +18,8 @@ class Welcome extends Application {
     //  The normal pages
     //-------------------------------------------------------------
 
-    function index() {
+    function index() 
+    {
         $this->data['pagebody'] = 'homepage';    // this is the view we want shown
         // build the list of authors, to pass on to our view
         $source = $this->quotes->all();
@@ -28,6 +29,18 @@ class Welcome extends Application {
         }
         $this->data['authors'] = $authors;
 
+        $this->render();
+    }
+    
+    function shucks()
+    {
+        $this->data['pagebody'] = 'justone'; 
+        
+        $record = $this->quotes->get(2);
+        $this->data['mug'] = $record['mug'];
+        $this->data['who'] = $record['who'];
+        $this->data['what'] = $record['what'];
+        
         $this->render();
     }
 

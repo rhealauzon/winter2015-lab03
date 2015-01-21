@@ -8,13 +8,10 @@
  *
  * ------------------------------------------------------------------------
  */
-class Welcome extends Application {
+class Guess extends Application {
 
     function __construct() {
         parent::__construct();
-        
-       // this is the view we want shown
-       $this->data['pagebody'] = 'justone';
     }
 
     //-------------------------------------------------------------
@@ -23,13 +20,12 @@ class Welcome extends Application {
 
     function index() 
     {
-        $record = $this->quotes->last();
-        $this->data['mug'] = $record['mug'];
-        $this->data['who'] = $record['who'];
-        $this->data['what'] = $record['what'];
+         // this is the view we want shown
+        $this->data['pagebody'] = 'justone';
+
         $this->render();
     }
-    
+
 }
 
 /* End of file Welcome.php */
