@@ -25,6 +25,7 @@ class Bingo extends Application {
         $this->render();
     }
     
+    // bottom right photo
     function wisdom() 
     {
         
