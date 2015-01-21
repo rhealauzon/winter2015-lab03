@@ -42,5 +42,11 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 
+/*Custom routes */
+$route['sleep'] = "first/zzz";
+$route['lock/(:any)/(:any)'] = "welcome/shucks";
+$route['show/(:num)'] = "first/gimme/$1";
+$route['dunno'] = "guess";
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

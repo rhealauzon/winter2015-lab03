@@ -12,7 +12,7 @@ class First extends Application {
 
     function __construct() {
         parent::__construct();
-        
+                
     }
 
     //-------------------------------------------------------------
@@ -23,7 +23,7 @@ class First extends Application {
     {
         // this is the view we want shown
         $this->data['pagebody'] = 'justone';
-       
+        
         //fetch the data about the first quote
         $record = $this->quotes->first();
         $this->data['mug'] = $record['mug'];
@@ -35,20 +35,27 @@ class First extends Application {
     
     // Sleep link 
     function zzz() 
-    {
+    {          
+        // this is the view we want shown
+        $this->data['pagebody'] = 'justone';
+        
         //get second record 
-        $record = $this->quotes->get(1);
+        $record = $this->quotes->first();
         
         //Update information
         $this->data['mug'] = $record['mug'];
         $this->data['who'] = $record['who'];
         $this->data['what'] = $record['what'];
-        $this->render();           
+        
+        $this->render();   
     }
     
-    //show/3
+    //show
     function gimme($id) 
     {
+        // this is the view we want shown
+        $this->data['pagebody'] = 'justone';
+        
         //get second record 
         $record = $this->quotes->get($id);
         
